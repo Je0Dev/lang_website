@@ -95,7 +95,7 @@ const PngCursorIcon = ({ color, isHovering }: { color: string, isHovering: boole
     />
     
     <img 
-      src="./cursor2.png"
+      src="cursor2.png"
       alt="cursor" 
       className="w-10 h-10 object-contain relative z-10 drop-shadow-md"
       style={{ 
