@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-yellow: #ffc800;
+  --color-brand-blue: #1cb0f6;
+  --color-brand-green: #58cc02;
+  --color-brand-pink: #ff4b4b;
+  --color-brand-purple: #ce82ff;
+  --color-brand-orange: #ff9600;
+  --color-brand-teal: #00ffc8;
+  --color-brand-dark: #131f24;
+  --color-brand-darker: #0a0a0a;
+  
+  /* Colors from provided images */
+  --color-duo-teal: #7fb9b9;
+  --color-duo-pink: #d97a8a;
+  --color-duo-orange: #f28d5e;
+  --color-duo-yellow: #f2b84b;
+  --color-duo-light-blue: #d1f2ff;
+  --color-duo-cream: #fdf5e6;
+}
+
+@layer base {
+  :root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-tertiary: rgba(255, 255, 255, 0.4);
+    --card-bg: #131f24;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --nav-bg: rgba(10, 10, 10, 0.8);
+  }
+
+  .light {
+    --bg-color: #fdf5e6;
+    --text-color: #131f24;
+    --text-secondary: rgba(19, 31, 36, 0.7);
+    --text-tertiary: rgba(19, 31, 36, 0.5);
+    --card-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --input-bg: rgba(0, 0, 0, 0.05);
+    --nav-bg: rgba(253, 245, 230, 0.8);
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    @apply font-sans antialiased transition-colors duration-300;
+  }
+
+  * {
+    cursor: none !important;
+  }
+}
+
+@layer utilities {
+  .text-brand-yellow { color: var(--color-brand-yellow); }
+  .text-brand-blue { color: var(--color-brand-blue); }
+  .text-brand-green { color: var(--color-brand-green); }
+  .text-brand-pink { color: var(--color-brand-pink); }
+  .text-brand-purple { color: var(--color-brand-purple); }
+  .text-brand-orange { color: var(--color-brand-orange); }
+  .text-brand-teal { color: var(--color-brand-teal); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-tertiary { color: var(--text-tertiary); }
+}
+
+@layer components {
+  .duo-button {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-bold transition-all duration-100 rounded-2xl active:translate-y-1 active:shadow-none;
+  }
+  
+  .duo-button-yellow {
+    @apply bg-brand-yellow text-brand-dark shadow-[0_4px_0_0_#d4a017];
+  }
+
+  .duo-button-blue {
+    @apply bg-brand-blue text-white shadow-[0_4px_0_0_#1899d6];
+  }
+
+  .duo-button-green {
+    @apply bg-brand-green text-white shadow-[0_4px_0_0_#46a302];
+  }
+
+  .duo-label {
+    @apply inline-block px-4 py-2 font-black rounded-xl shadow-[0_4px_0_0_rgba(0,0,0,0.2)] text-sm uppercase tracking-widest mb-6;
+  }
+
+  .duo-card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    @apply border-2 rounded-2xl p-6 transition-all hover:border-white/20;
+  }
+
+  .skill-icon-container {
+    @apply relative w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center transition-all duration-300 overflow-hidden;
+  }
+
+  .skill-icon-container:hover {
+    @apply shadow-[0_0_30px_rgba(255,255,255,0.1)];
+  }
+
+  .skill-icon-fill {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  }
+
+  .skill-icon-container:hover .skill-icon-fill {
+    @apply opacity-100;
+  }
+
+  .duo-social-btn {
+    @apply w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark shadow-[0_4px_0_0_#d4a017] transition-all active:translate-y-1 active:shadow-none hover:scale-110;
+  }
+
+  .duo-nav-link {
+    color: var(--text-secondary);
+    @apply px-4 py-2 font-bold hover:text-brand-blue hover:bg-white/5 rounded-xl transition-all active:scale-95;
+  }
+
+  .duo-border-yellow { @apply border-brand-yellow/50 shadow-[4px_4px_0_0_rgba(255,200,0,0.2)]; }
+  .duo-border-blue { @apply border-brand-blue/50 shadow-[4px_4px_0_0_rgba(28,176,246,0.2)]; }
+  .duo-border-green { @apply border-brand-green/50 shadow-[4px_4px_0_0_rgba(88,204,2,0.2)]; }
+  .duo-border-pink { @apply border-brand-pink/50 shadow-[4px_4px_0_0_rgba(255,75,75,0.2)]; }
+  .duo-border-purple { @apply border-brand-purple/50 shadow-[4px_4px_0_0_rgba(206,130,255,0.2)]; }
+  .duo-border-orange { @apply border-brand-orange/50 shadow-[4px_4px_0_0_rgba(255,150,0,0.2)]; }
+  .duo-border-teal { @apply border-brand-teal/50 shadow-[4px_4px_0_0_rgba(0,255,200,0.2)]; }
+
+  .duo-input {
+    background-color: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    @apply w-full border-2 rounded-2xl px-4 py-3 outline-none transition-all focus:border-brand-blue focus:bg-white/10;
+  }
+
+  .duo-input-error {
+    @apply border-brand-pink focus:border-brand-pink;
+  }
+
+  .error-text {
+    @apply text-brand-pink text-xs font-bold mt-1 ml-2;
+  }
+}
