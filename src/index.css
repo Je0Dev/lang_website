@@ -26,23 +26,27 @@
   :root {
     --bg-color: #0a0a0a;
     --text-color: #ffffff;
+    --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.6);
     --text-tertiary: rgba(255, 255, 255, 0.4);
     --card-bg: #131f24;
     --border-color: rgba(255, 255, 255, 0.1);
     --input-bg: rgba(255, 255, 255, 0.05);
     --nav-bg: rgba(10, 10, 10, 0.8);
+    --hover-bg: rgba(255, 255, 255, 0.08);
   }
 
   .light {
     --bg-color: #fdf5e6;
     --text-color: #131f24;
+    --text-primary: #131f24;
     --text-secondary: rgba(19, 31, 36, 0.7);
     --text-tertiary: rgba(19, 31, 36, 0.5);
     --card-bg: #ffffff;
     --border-color: rgba(0, 0, 0, 0.1);
     --input-bg: rgba(0, 0, 0, 0.05);
     --nav-bg: rgba(253, 245, 230, 0.8);
+    --hover-bg: rgba(0, 0, 0, 0.08);
   }
 
   body {
@@ -51,8 +55,9 @@
     @apply font-sans antialiased transition-colors duration-300;
   }
 
-  * {
-    cursor: none !important;
+  *:focus-visible {
+    outline: 2px solid #1cb0f6;
+    outline-offset: 2px;
   }
 }
 
@@ -66,6 +71,7 @@
   .text-brand-teal { color: var(--color-brand-teal); }
   .text-secondary { color: var(--text-secondary); }
   .text-tertiary { color: var(--text-tertiary); }
+  .text-primary { color: var(--text-primary); }
 }
 
 @layer components {
