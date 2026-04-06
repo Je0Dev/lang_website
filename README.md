@@ -7,4 +7,4 @@
 2. Run the app:
    `npm run dev`
 # Demo
-https://je0dev.github.io/lang_website/
+
