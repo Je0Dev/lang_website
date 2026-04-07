@@ -1,4 +1,13 @@
- concepts through spaced repetition flashcards and interactive quizzes.
+<div align="center">
+  <h1>Language Learning Website</h1>
+  <p>An interactive platform for learning programming languages through flashcards and quizzes</p>
+</div>
+---
+## 🌐 Demo
+**Live Site:** https://je0dev.github.io/lang_website
+---
+## 📖 About
+This is my language learning application designed to help students memorize programming language syntax and concepts through spaced repetition flashcards and interactive quizzes.
 ### Features
 - 📚 **Flashcards** - Learn programming language syntax with interactive cards
 - 🎯 **Quizzes** - Test your knowledge with multiple choice questions
@@ -70,3 +79,4 @@ The site features a modern, clean design with:
 - **Email:** giorgos_M000@hotmail.com
 ---
 ## 📜 License
+MIT License
