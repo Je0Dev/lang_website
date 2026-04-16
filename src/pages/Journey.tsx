@@ -7,21 +7,8 @@ import { ColoredText } from "../components/ColoredText";
 import { SectionLabel } from "../components/SectionLabel";
 import { Mascot } from "../components/Mascot";
 import { Cloud } from "../components/Cloud";
-import { GraduationCap, MessageCircle, Zap, ArrowUpRight, X, Calendar, Target, BookOpen, Globe, ChevronRight, ExternalLink } from "lucide-react";
-
-interface JourneyItem {
-  id: number;
-  title: string;
-  company: string;
-  period: string;
-  desc: string;
-  longDesc: string;
-  icon: React.ReactNode;
-  color: string;
-  textColor: string;
-  hex: string;
-  links?: { text: string; url: string }[];
-}
+import { journeyItems, type JourneyItem } from "../data/milestones.tsx";
+import { X, Calendar, ChevronRight, ExternalLink, Target } from "lucide-react";
 
 export function JourneyPage() {
   const [selectedJourney, setSelectedJourney] = useState<JourneyItem | null>(null);
@@ -41,118 +28,7 @@ export function JourneyPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedJourney]);
 
-  const experiences: JourneyItem[] = [
-    {
-      id: 1,
-      title: "Advanced Fluency (C1-C2)",
-      company: "The Final Boss",
-      period: "Endgame",
-      desc: "This is the stage where you breathe and think like a native.",
-      longDesc: `This is the stage where you breathe and think like a native. You've proven your commitment, and now it's about refining your skills to near-native levels.
-
-**What it means:**
-• Complex conversations without hesitation
-• Reading literature and technical documents
-• Expressing nuanced opinions
-• Thinking directly in the target language
-
-**My approach:**
-• Native media consumption (movies, podcasts, books)
-• Writing practice (journals, essays)
-• Speaking with native speakers regularly
-• Focusing on idioms and colloquialisms
-
-**Resources:**
-• Advanced grammar books
-• Native literature (start with simplier works)
-• Discussion groups and forums
-• Language exchange partners
-
-In my opinion, chasing the C2 diploma isn't always worth it—fluency matters more than certification. You've come so far; one last push remains!`,
-      icon: <GraduationCap className="w-10 h-10" />,
-      color: "bg-brand-blue",
-      textColor: "text-brand-blue",
-      hex: "#1cb0f6",
-      links: [
-        { text: "TED Talks", url: "https://www.ted.com/talks" },
-        { text: "The Economist", url: "https://www.economist.com/podcasts" }
-      ]
-    },
-    {
-      id: 2,
-      title: "Intermediate Plateau (B1-B2)",
-      company: "Getting Deeper",
-      period: "After mastering the basics",
-      desc: "This is where things get serious. Immersion becomes crucial.",
-      longDesc: `This is where things get serious. Immersion through vocabulary that's actually being used in real contexts becomes crucial.
-
-**What it means:**
-• Can hold conversations on familiar topics
-• Understand main ideas of complex texts
-• Deal with most situations while traveling
-• Write clear, detailed texts
-
-**My approach:**
-• 70% input, 30% active study ratio
-• Start watching TV shows without subtitles
-• Read graded readers and simple novels
-• Practice speaking with language partners
-
-**Resources:**
-• Netflix with target language (Dark, Money Heist)
-• Graded readers (Mandarin Companion, easy readers)
-• Grammar books for intermediate learners
-• Language exchange apps (Tandem, HelloTalk)
-
-This is the make-or-break phase where many learners plateau—push through it! The key is consistent daily immersion even if it's just 30 minutes.`,
-      icon: <MessageCircle className="w-10 h-10" />,
-      color: "bg-brand-green",
-      textColor: "text-brand-green",
-      hex: "#58cc02",
-      links: [
-        { text: "Easy Languages YouTube", url: "https://www.youtube.com" },
-        { text: "Language Transfer", url: "https://www.languagetransfer.org" }
-      ]
-    },
-    {
-      id: 3,
-      title: "The Beginning (A1-A2)",
-      company: "First Steps",
-      period: "When you have time",
-      desc: "Just start—10 or 30 minutes doesn't matter. Be consistent.",
-      longDesc: `Just start—10 or 30 minutes doesn't matter. Be consistent and set mini goals to progress from the beginner phase.
-
-**What it means:**
-• Can introduce yourself and others
-• Ask and answer questions about personal details
-• Interact in a simple way if the other person talks slowly
-• Understand familiar names, words, and basic phrases
-
-**My approach:**
-• Start with pronunciation (this is crucial!)
-• Learn the 1000 most common words
-• Use spaced repetition (Anki)
-• Don't worry about grammar initially
-• Focus on patterns, not rules
-
-**Resources:**
-• YouTube tutorials for basics
-• Duolingo or similar apps for gamification
-• Basic grammar books
-• Children's shows (easier to follow)
-• Music in target language
-
-You really don't need to spend money when just starting out. If you can't find time to scavenge the internet, use apps that connect you with native speakers from day one. The most important thing is to START!`,
-      icon: <Zap className="w-10 h-10" />,
-      color: "bg-brand-purple",
-      textColor: "text-brand-purple",
-      hex: "#ce82ff",
-      links: [
-        { text: "Anki", url: "https://apps.ankiweb.net" },
-        { text: "Basic Phrasebooks", url: "https://www.amazon.com" }
-      ]
-    },
-  ];
+const experiences = journeyItems;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
