@@ -17,8 +17,8 @@ const LinkedColoredText = ({ children, colorClass, to }: { children: React.React
 
 const GradientFlagButton = ({ flag, colors, progress }: { flag: string; colors: string[]; progress: number; level: string }) => (
   <div className="relative group">
-    <motion.div 
-      whileHover={{ 
+    <motion.div
+      whileHover={{
         scale: [1, 1.05, 1],
         y: -5,
       }}
@@ -33,7 +33,7 @@ const GradientFlagButton = ({ flag, colors, progress }: { flag: string; colors: 
       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
     </motion.div>
     <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-2 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
-      <motion.div 
+      <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: `${progress}%` }}
         viewport={{ once: true }}
@@ -63,9 +63,9 @@ export function LanguagesPage() {
       onMouseLeave={() => setCursorColor("#1cb0f6")}
       className="flex flex-col items-center"
     >
-      <GradientFlagButton 
-        flag={lang.flag} 
-        colors={lang.colors} 
+      <GradientFlagButton
+        flag={lang.flag}
+        colors={lang.colors}
         progress={lang.progress}
         level={lang.level}
       />
@@ -75,7 +75,7 @@ export function LanguagesPage() {
           <span className="text-xs text-white/60 bg-white/10 px-2 py-0.5 rounded">{lang.level}</span>
         </div>
         <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-          <motion.div 
+          <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: `${lang.progress}%` }}
             viewport={{ once: true }}
@@ -87,8 +87,8 @@ export function LanguagesPage() {
           />
         </div>
       </div>
-      
-      <button 
+
+      <button
         onClick={() => setExpandedLang(expandedLang === lang.name ? null : lang.name)}
         className={`mt-3 flex items-center gap-2 text-sm text-secondary hover:${accentColor} transition-colors`}
       >
@@ -100,10 +100,10 @@ export function LanguagesPage() {
           <ChevronDown className="w-4 h-4" />
         </motion.div>
       </button>
-      
+
       <motion.div
         initial={false}
-        animate={{ 
+        animate={{
           height: expandedLang === lang.name ? "auto" : 0,
           opacity: expandedLang === lang.name ? 1 : 0
         }}
@@ -121,10 +121,10 @@ export function LanguagesPage() {
                   {lvl.resources && lvl.resources.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {lvl.resources.map((res: any, rIdx: number) => (
-                        <a 
-                          key={rIdx} 
-                          href={res.url} 
-                          target="_blank" 
+                        <a
+                          key={rIdx}
+                          href={res.url}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="text-[10px] bg-white/5 hover:bg-white/10 text-white/70 px-2 py-1 rounded transition-colors"
                         >
@@ -149,7 +149,7 @@ export function LanguagesPage() {
           <Mascot color="bg-brand-teal" position="left-10 top-0" delay={1} type="star" />
           <SectionLabel text={t("UNIT 1 - Language Goals")} colorClass="bg-brand-green" hoverGif="https://i.gifer.com/Pak.gif" />
           <h2 className="text-4xl md:text-6xl font-black mt-6 mb-4">
-            <ColoredText colorClass="text-brand-blue">{t("Language Hunting").split(' ')[0]}</ColoredText> <ColoredText colorClass="text-brand-pink">{t("Language Hunting").split(' ').slice(1).join(' ')}</ColoredText> 
+            <ColoredText colorClass="text-brand-blue">{t("Language Hunting").split(' ')[0]}</ColoredText> <ColoredText colorClass="text-brand-pink">{t("Language Hunting").split(' ').slice(1).join(' ')}</ColoredText>
           </h2>
           <p className="text-secondary max-w-xl mx-auto">
              {t("Here is my")} <ColoredText colorClass="text-brand-yellow">{t("List")}</ColoredText>.
@@ -161,7 +161,7 @@ export function LanguagesPage() {
             <GraduationCap className="w-8 h-8 text-brand-teal" />
             <LinkedColoredText to="/resources" colorClass="text-brand-teal hover:underline">{t("Known Languages")}</LinkedColoredText>
           </h3>
-          
+
           <div className="grid md:grid-cols-3 gap-12">
             {uiLanguages.map((lang, i) => renderLanguageCard(lang, i, "text-brand-teal"))}
           </div>
@@ -172,7 +172,7 @@ export function LanguagesPage() {
             <Target className="w-8 h-8 text-brand-orange" />
             <LinkedColoredText to="/blog" colorClass="text-brand-orange hover:underline">{t("Currently Learning")}</LinkedColoredText>
           </h3>
-          
+
           <div className="grid md:grid-cols-2 gap-12">
             {learningLanguages.map((lang, i) => renderLanguageCard(lang, i, "text-brand-orange"))}
           </div>

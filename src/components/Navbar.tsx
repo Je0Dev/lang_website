@@ -8,7 +8,7 @@ import { NavbarMobile } from "./Navbar/NavbarMobile";
 import { LanguageBar } from "./Navbar/LanguageBar";
 
 export function Navbar() {
-  const { isDarkMode, toggleTheme, language, setLanguage, t, isMenuOpen, setIsMenuOpen, showLangBar, setShowLangBar, selectedIndex, isActive, menuRef, navigate } = useNavbar();
+  const { isDarkMode, toggleTheme, language, setLanguage, t, isMenuOpen, setIsMenuOpen, showLangBar, setShowLangBar, selectedIndex, setSelectedIndex, isActive, menuRef, navigate } = useNavbar();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--nav-bg)] backdrop-blur-md border-b border-[var(--border-color)]" role="navigation" aria-label="Main navigation">

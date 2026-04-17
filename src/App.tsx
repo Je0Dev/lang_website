@@ -7,7 +7,6 @@ import { Navbar } from "./components/Navbar";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Footer } from "./components/Footer";
 import { PageLoader } from "./components/PageLoader";
-import { MorphingBackgroundFixed } from "./components/MorphingBackgroundFixed";
 import { useAppAnimations } from "./hooks/useAppAnimations";
 import { useTheme } from "./hooks/useTheme";
 import { useLanguage } from "./hooks/useLanguage";
@@ -41,34 +40,27 @@ export default function App() {
     <ThemeContext.Provider value={theme}>
       <LanguageContext.Provider value={language}>
         <LoadingScreen isVisible={isLoading} />
-        <motion.div 
+        <motion.div
           ref={containerRef}
           className="min-h-screen selection:bg-brand-yellow selection:text-brand-dark relative overflow-x-hidden"
           style={{ backgroundColor }}
         >
           <motion.div
-            className="fixed top-0 left-0 right-0 h-1.5 bg-brand-green z-[100] origin-left"
+            className="fixed top-0 left-0 right-0 h-1.5 bg-brand-green z-[100]"
             style={{ scaleX: smoothProgress }}
           />
-          <MorphingBackgroundFixed scrollYProgress={scrollYProgress} />
-          
-          <motion.div className="fixed inset-0 pointer-events-none bg-duo-teal z-0" style={{ opacity: tealOpacity }} />
-          <motion.div className="fixed inset-0 pointer-events-none bg-duo-pink z-0" style={{ opacity: pinkOpacity }} />
-          <motion.div className="fixed inset-0 pointer-events-none bg-duo-orange z-0" style={{ opacity: orangeOpacity }} />
 
-          <motion.div style={{ rotate: rotationAmount }} className="fixed inset-0 pointer-events-none z-0" />
-          
           <Navbar />
-          
+
           <AnimatePresence mode="wait">
-            <motion.main 
+            <motion.main
               id="main-content"
               key={location.pathname}
               className="relative z-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15, ease: "linear" }}
             >
             <Suspense fallback={<PageLoader />}>
               <ErrorBoundary>
@@ -86,7 +78,7 @@ export default function App() {
             </Suspense>
             </motion.main>
           </AnimatePresence>
-          
+
           <Footer />
         </motion.div>
       </LanguageContext.Provider>

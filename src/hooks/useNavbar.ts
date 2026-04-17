@@ -51,5 +51,20 @@ export function useNavbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen, selectedIndex, showLangBar, setLanguage, navigate]);
 
-  return { isDarkMode, toggleTheme, language, setLanguage, t, isMenuOpen, setIsMenuOpen, showLangBar, setShowLangBar, selectedIndex, setSelectedIndex, isActive, menuRef, navigate };
+  return { 
+    isDarkMode, 
+    toggleTheme, 
+    language, 
+    setLanguage, 
+    t, 
+    isMenuOpen, 
+    setIsMenuOpen, 
+    showLangBar, 
+    setShowLangBar, 
+    selectedIndex, 
+    setSelectedIndex, 
+    isActive, 
+    menuRef, 
+    navigate 
+  };
 }

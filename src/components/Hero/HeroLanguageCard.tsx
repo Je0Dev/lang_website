@@ -28,8 +28,8 @@ export function HeroLanguageCard({ lang, isExpanded, onToggle, setCursorColor, o
       >
         <div className="flex items-center gap-4">
           <div 
-            className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shadow-[0_4px_0_0_rgba(0,0,0,0.2)]"
-            style={{ background: `linear-gradient(135deg, ${lang.colors[0]} 0%, ${lang.colors[1]} 100%)` }}
+            className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
+            style={{ backgroundColor: lang.colors[0] }}
           >
             {lang.flag}
           </div>
@@ -47,9 +47,9 @@ export function HeroLanguageCard({ lang, isExpanded, onToggle, setCursorColor, o
               <p className="text-sm text-secondary">{lang.progress}%</p>
               <div className="w-20 h-2 bg-[var(--input-bg)] rounded-full overflow-hidden">
                 <div 
-                  className="h-full rounded-full shadow-[0_2px_0_0_rgba(0,0,0,0.2)]"
+                  className="h-full rounded-full"
                   style={{
-                    background: `linear-gradient(90deg, ${lang.colors[0]}, ${lang.colors[1]})`,
+                    backgroundColor: lang.colors[0],
                     width: `${lang.progress}%`
                   }}
                 />

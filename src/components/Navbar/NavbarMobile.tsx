@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { uiLanguages, navItems, socialLinks, languageColors } from "../../data/navbar";
 
 interface NavbarMobileProps {
-  menuRef: React.RefObject<HTMLDivElement>;
+  menuRef: React.RefObject<HTMLDivElement | null>;
   language: string;
   setLanguage: (lang: string) => void;
   setIsMenuOpen: (open: boolean) => void;
